@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: lightgray;
@@ -23,5 +21,4 @@ a:hover::after {
   margin-left: 8px;
   content: '❯';
   font-size: 20px;
-  /* line-height: 1.5; */
 }
