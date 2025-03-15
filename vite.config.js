@@ -1,17 +1,20 @@
-import { defineConfig } from 'vite';
-import FullReload from 'vite-plugin-full-reload';
+const path = require('path');
+const { defineConfig } = require('vite');
 
-export default defineConfig({
-  root: 'src',
+module.exports = defineConfig({
   build: {
-    outDir: '../dist',
+    lib: {
+      entry: path.resolve(__dirname, 'lib/main.js'),
+      name: 'MyLib',
+      fileName: format => `my-lib.${format}.js`,
+    },
     rollupOptions: {
-      input: {
-        main: 'src/index.html',
-        gallery: 'src/public/1-gallery.html',
-        form: 'src/public/2-form.html',
+      external: ['vue'],
+      output: {
+        globals: {
+          vue: 'Vue',
+        },
       },
     },
   },
-  plugins: [FullReload(['./src/**/*.html'])],
 });
